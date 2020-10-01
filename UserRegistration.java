@@ -16,11 +16,13 @@ public class UserRegistration {
 			String lastName = sc.nextLine();
 			if (Pattern.matches(pattern, lastName)) {
 				System.out.println("Valid  last name");
-			} else {
+			} 
+			else {
 				System.out.println("Invalid last name!!!...Try again");
 			}
 			System.out.println("\nUser name is " + firstName + " " + lastName);
-		} else {
+		} 
+		else {
 			System.out.println("Invalid first name!!!...Try again");
 			do {
 				System.out.println("Enter your first name: ");
@@ -31,7 +33,8 @@ public class UserRegistration {
 			String lastName = sc.nextLine();
 			if (Pattern.matches(pattern, lastName)) {
 				System.out.println("Valid last name");
-			} else {
+			} 
+			else {
 				System.out.println("Invalid last name!!!...Try again");
 				do {
 					System.out.println("Enter your last name: ");
@@ -39,8 +42,25 @@ public class UserRegistration {
 				} while (!Pattern.matches(pattern, lastName));
 				System.out.println("Valid  last name");
 				System.out.println("\nUser name is " + firstName + " " + lastName);
-				sc.close();
 			}
+
 		}
+		System.out.println("\nEnter your email id: ");
+		String emailId = sc.nextLine();
+		String emailPat = "^[a-z]+[+-.]{0,1}[a-z0-9]+@[a-z0-9]+[.]{1}[a-z]{2,}([.]{0,1}[a-z]{2,}){0,1}([,]){0,1}$";
+		if (Pattern.matches(emailPat, emailId)) {
+			System.out.println("Valid email id");
+			System.out.println("User email id is " + emailId);
+		} 
+		else {
+			do {
+				System.out.println("Invalid email id!!!...Try again");
+				System.out.println("\nEnter your email id: ");
+				emailId = sc.nextLine();
+			} while (!Pattern.matches(emailPat, emailId));
+			System.out.println("Valid email id");
+			System.out.println("\nUser email id is " + emailId);
+		}
+		sc.close();
 	}
 }
