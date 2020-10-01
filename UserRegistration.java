@@ -16,13 +16,11 @@ public class UserRegistration {
 			String lastName = sc.nextLine();
 			if (Pattern.matches(pattern, lastName)) {
 				System.out.println("Valid  last name");
-			} 
-			else {
+			} else {
 				System.out.println("Invalid last name!!!...Try again");
 			}
 			System.out.println("\nUser name is " + firstName + " " + lastName);
-		} 
-		else {
+		} else {
 			System.out.println("Invalid first name!!!...Try again");
 			do {
 				System.out.println("Enter your first name: ");
@@ -33,8 +31,7 @@ public class UserRegistration {
 			String lastName = sc.nextLine();
 			if (Pattern.matches(pattern, lastName)) {
 				System.out.println("Valid last name");
-			} 
-			else {
+			} else {
 				System.out.println("Invalid last name!!!...Try again");
 				do {
 					System.out.println("Enter your last name: ");
@@ -51,8 +48,7 @@ public class UserRegistration {
 		if (Pattern.matches(emailPat, emailId)) {
 			System.out.println("Valid email id");
 			System.out.println("User email id is " + emailId);
-		} 
-		else {
+		} else {
 			do {
 				System.out.println("Invalid email id!!!...Try again");
 				System.out.println("\nEnter your email id: ");
@@ -60,6 +56,21 @@ public class UserRegistration {
 			} while (!Pattern.matches(emailPat, emailId));
 			System.out.println("Valid email id");
 			System.out.println("\nUser email id is " + emailId);
+		}
+		String mobilePat = "[0-9]{2}[' ']{1}[789]{1}[0-9]{9}";
+		System.out.println("\nEnter your mobile number with country code: ");
+		String mobileNumber = sc.nextLine();
+		if (Pattern.matches(mobilePat, mobileNumber)) {
+			System.out.println("Valid mobile number");
+			System.out.println("User mobile number is " + mobileNumber);
+		} else {
+			do {
+				System.out.println("Invalid mobile number!!!...Try again");
+				System.out.println("\nEnter your mobile number: ");
+				emailId = sc.nextLine();
+			} while (!Pattern.matches(mobilePat, mobileNumber));
+			System.out.println("Valid mobile number");
+			System.out.println("\nUser mobile number is " + mobileNumber);
 		}
 		sc.close();
 	}
