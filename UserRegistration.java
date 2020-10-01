@@ -72,6 +72,21 @@ public class UserRegistration {
 			System.out.println("Valid mobile number");
 			System.out.println("\nUser mobile number is " + mobileNumber);
 		}
+		String passPat = "[a-zA-Z0-9@#$%^*.,/]{8,}";
+		System.out.println("\nEnter your password: ");
+		String password = sc.nextLine();
+		if (Pattern.matches(passPat, password)) {
+			System.out.println("Valid password");
+			System.out.println("User password is " + password);
+		} else {
+			do {
+				System.out.println("Invalid password!!!...Try again");
+				System.out.println("\nEnter your password: ");
+				password = sc.nextLine();
+			} while (!Pattern.matches(passPat, password));
+			System.out.println("Valid password");
+			System.out.println("\nUser password is " + password);
+		}
 		sc.close();
 	}
 }
