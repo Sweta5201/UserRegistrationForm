@@ -44,7 +44,7 @@ public class UserRegistration {
 		}
 		System.out.println("\nEnter your email id: ");
 		String emailId = sc.nextLine();
-		String emailPat = "^[a-z]+[+-.]{0,1}[a-z0-9]+@[a-z0-9]+[.]{1}[a-z]{2,}([.]{0,1}[a-z]{2,}){0,1}([,]){0,1}$";
+		String emailPat = "^[a-z]+[_+-.]{0,1}[a-z0-9]+@[a-z0-9]+[.]{1}[a-z]{2,}([.]{0,1}[a-z]{2,}){0,1}([,]){0,1}$";
 		if (Pattern.matches(emailPat, emailId)) {
 			System.out.println("Valid email id");
 			System.out.println("User email id is " + emailId);
@@ -72,7 +72,7 @@ public class UserRegistration {
 			System.out.println("Valid mobile number");
 			System.out.println("\nUser mobile number is " + mobileNumber);
 		}
-		String passPat = "(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9@#$%^*!&]{8,}";
+		String passPat = "^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9 ]).*$";
 		System.out.println("\nEnter your password: ");
 		String password = sc.nextLine();
 		if (Pattern.matches(passPat, password)) {
