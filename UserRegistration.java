@@ -5,6 +5,15 @@ import java.util.regex.Pattern;
 
 public class UserRegistration {
 
+	public static boolean validateEmailId(String email) {
+		if (Pattern.matches("^[a-z]+[_+-.]{0,1}[a-z0-9]+@[a-z0-9]+[.]{1}[a-z]{2,}([.]{0,1}[a-z]{2,}){0,1}([,]){0,1}$",
+				email)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter your first name: ");
@@ -42,21 +51,16 @@ public class UserRegistration {
 			}
 
 		}
-		System.out.println("\nEnter your email id: ");
-		String emailId = sc.nextLine();
-		String emailPat = "^[a-z]+[_+-.]{0,1}[a-z0-9]+@[a-z0-9]+[.]{1}[a-z]{2,}([.]{0,1}[a-z]{2,}){0,1}([,]){0,1}$";
-		if (Pattern.matches(emailPat, emailId)) {
-			System.out.println("Valid email id");
-			System.out.println("User email id is " + emailId);
-		} else {
-			do {
-				System.out.println("Invalid email id!!!...Try again");
-				System.out.println("\nEnter your email id: ");
-				emailId = sc.nextLine();
-			} while (!Pattern.matches(emailPat, emailId));
-			System.out.println("Valid email id");
-			System.out.println("\nUser email id is " + emailId);
+		System.out.println("\nEnter your email ids: ");
+		String[] sampleIds = new String[] { "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com",
+				"abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com", "abc",
+				"abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com",
+				"abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a",
+				"abc@gmail.com.aa.au" };
+		for (String pos : sampleIds) {
+			System.out.println(pos + ": " + validateEmailId(pos));
 		}
+
 		String mobilePat = "[0-9]{2}[' ']{1}[789]{1}[0-9]{9}";
 		System.out.println("\nEnter your mobile number with country code: ");
 		String mobileNumber = sc.nextLine();
@@ -67,7 +71,7 @@ public class UserRegistration {
 			do {
 				System.out.println("Invalid mobile number!!!...Try again");
 				System.out.println("\nEnter your mobile number: ");
-				emailId = sc.nextLine();
+				mobileNumber = sc.nextLine();
 			} while (!Pattern.matches(mobilePat, mobileNumber));
 			System.out.println("Valid mobile number");
 			System.out.println("\nUser mobile number is " + mobileNumber);
