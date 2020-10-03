@@ -72,7 +72,7 @@ public class UserRegistration {
 			System.out.println("Valid mobile number");
 			System.out.println("\nUser mobile number is " + mobileNumber);
 		}
-		String passPat = "^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9 ]).*$";
+		String passPat = "^(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]*[@#$%^*!&][0-9a-zA-Z]*";
 		System.out.println("\nEnter your password: ");
 		String password = sc.nextLine();
 		if (Pattern.matches(passPat, password)) {
