@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class UserRegistration {
 
 	public static boolean validateEmailId(String email) {
-		if (Pattern.matches("^[a-z]+[_+-.]{0,1}[a-z0-9]+@[a-z0-9]+[.]{1}[a-z]{2,}([.]{0,1}[a-z]{2,}){0,1}([,]){0,1}$",
+		if (Pattern.matches("^[a-zA-Z0-9]+[_+-.]{0,1}[a-zA-Z0-9]+@[a-zA-Z0-9]+[.]{1}[a-z]{2,}([.]{0,1}[a-z]{2,}){0,1}$",
 				email)) {
 			return true;
 		} else {
